@@ -29,8 +29,7 @@ public class PriceController {
                                                  @RequestParam Long productId, @RequestParam Integer brandId) {
         log.info("Controller: PriceController received request for productId: {}, brandId: {}, applicationDate: {}",
                 productId, brandId, applicationDate);
-        Price price = getPriceUseCase.getPrice(
-                applicationDate, productId, brandId);
+        Price price = getPriceUseCase.getPrice(applicationDate, productId, brandId);
         return ResponseEntity.ok(mapper.toResponse(price));
     }
 }

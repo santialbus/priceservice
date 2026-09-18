@@ -23,10 +23,8 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
     public List<Price> findPrices(LocalDateTime applicationDate, Long productId, Integer brandId) {
         log.info("Repository: PriceRepositoryAdapter retrieving prices for productId: {}, brandId: {}, applicationDate: {}",
                 productId, brandId, applicationDate);
-        return repository
-                .findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId,
-                        applicationDate,
-                        applicationDate)
+        return repository.findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId,
+                        applicationDate, applicationDate)
                 .stream()
                 .map(mapper::toDomain)
                 .toList();
